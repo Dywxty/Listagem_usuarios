@@ -1,0 +1,20 @@
+{
+  "name": "listagem-usuarios",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplicacao React para listagem de usuarios com Parcel.",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\""
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "type": "module",
+  "license": "ISC"
+}
