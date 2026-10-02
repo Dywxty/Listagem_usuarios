@@ -1,29 +1,27 @@
-import UserCardComponent from './UserCardComponent';
+import UserCardComponent from "./UserCardComponent";
+import "../styles.css";
 
-const UserListComponent = ({ usuarios, busca, erro }) => {
+function UserListComponent({
+    usuarios,
+    onSelecionarUsuario,
+    onExcluirUsuario,
+    usuarioEmExclusao
+}) {
     return (
-        <main className="user-list">
-            {erro ? (
-                <p className="user-list__error">{erro}</p>
-            ) : (
-                <>
-                    <p className="user-list__summary">
-                        {busca ? `Resultados para: "${busca}"` : 'Todos os usuários'}
-                    </p>
+        <ul className="lista-usuarios">
 
-                    {usuarios.length > 0 ? (
-                        <ul className="user-list__grid">
-                            {usuarios.map((usuario) => (
-                                <UserCardComponent key={usuario.id} usuario={usuario} />
-                            ))}
-                        </ul>
-                    ) : (
-                        <p className="user-list__empty">Nenhum usuário encontrado.</p>
-                    )}
-                </>
-            )}
-        </main>
+            {usuarios.map((usuario) => (
+                <UserCardComponent
+                    key={usuario.id}
+                    usuario={usuario}
+                    onSelecionarUsuario={onSelecionarUsuario}
+                    onExcluirUsuario={onExcluirUsuario}
+                    excluindo={usuarioEmExclusao === usuario.id}
+                />
+            ))}
+
+        </ul>
     );
-};
+}
 
 export default UserListComponent;

@@ -1,26 +1,22 @@
-const HeaderComponent = ({ busca, onBuscaChange, totalUsuarios }) => {
+
+function HeaderComponent({ busca, setBusca }) {
     return (
-        <header className="header">
-            <div className="header__content">
-                <div className="header__text">
-                    <p className="header__eyebrow">Catálogo</p>
-                    <h1 className="header__title">Usuários</h1>
-                </div>
+        <header>
+            <h1 className="titulo">
+                Catálogo de Usuários
+            </h1>
 
-                <div className="header__controls">
-                    <input
-                        className="header__search"
-                        type="text"
-                        placeholder="Buscar usuários..."
-                        value={busca}
-                        onChange={(e) => onBuscaChange(e.target.value)}
-                    />
-
-                    <p className="header__count">{totalUsuarios} encontrado(s)</p>
-                </div>
-            </div>
+            <input
+                className="campo-busca"
+                type="text"
+                placeholder="Filtrar usuário..."
+                value={busca}
+                onChange={(evento) => {
+                    setBusca(evento.target.value)
+                }}
+            />
         </header>
     );
-};
+}
 
 export default HeaderComponent;
